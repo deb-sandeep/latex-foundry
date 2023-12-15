@@ -1,0 +1,46 @@
+% A custom command for loading images in the center of the page
+%
+% Parameter-1 : Width of the image
+% Parameter-2 : Path of image relative to ./inc/res/img/
+% Parameter-3 : Caption of the image
+% Parameter-4 : Label of the image. fig: is prepended automatically
+\newcommand{\img}[4]{
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=#1]{./inc/res/img/#2}
+        \caption{#3}
+        \label{fig:#4}
+    \end{figure}
+}
+
+% A custom command for loading images right of the page with the 
+% text wrapping around it.
+%
+% Parameter-1 : Width of the image. Default: 0.4\textwidth
+% Parameter-2 : Path of image relative to ./inc/res/img/
+% Parameter-3 : Caption of the image
+% Parameter-4 : Label of the image. fig: is prepended automatically
+\newcommand{\rimg}[4][0.4\textwidth]{
+    \begin{wrapfigure}{r}{#1}
+        \centering
+        \includegraphics[width=#1]{./inc/res/img/#2}
+        \caption{#3}
+        \label{fig:#4}
+    \end{wrapfigure}
+}
+
+% A custom command for loading images left of the page with the 
+% text wrapping around it.
+%
+% Parameter-1 : Width of the image. Default: 0.4\textwidth
+% Parameter-2 : Path of image relative to ./inc/res/img/
+% Parameter-3 : Caption of the image
+% Parameter-4 : Label of the image. fig: is prepended automatically
+\newcommand{\limg}[4][0.4\textwidth]{
+    \begin{wrapfigure}{l}{#1}
+        \centering
+        \includegraphics[width=#1]{./inc/res/img/#2}
+        \caption{#3}
+        \label{fig:#4}
+    \end{wrapfigure}
+}

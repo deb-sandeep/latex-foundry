@@ -1,0 +1,30 @@
+\newpage
+% ======================================================================
+\section{Algorithms}
+
+Writing pseudocode in Latex using the \verb|algorithm2e| package.
+
+\begin{algorithm}
+\caption{An algorithm with caption}\label{alg:one}
+
+\KwData{$n \geq 0$}
+\KwResult{$y = x^n$}
+\BlankLine
+
+$y \gets 1$\;
+$X \gets x$\;
+$N \gets n$\;
+\BlankLine
+
+\While{$N \neq 0$}{
+  \eIf{$N$ is even}{
+    $X \gets X \times X$\;
+    $N \gets \frac{N}{2}$ \tcc*{This is a comment}
+  }{
+     \If{$N$ is odd}{
+      $y \gets y \times X$\;
+      $N \gets N - 1$\;
+    }
+  }
+}
+\end{algorithm}

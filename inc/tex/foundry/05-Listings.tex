@@ -1,0 +1,34 @@
+\newpage
+% ======================================================================
+\section{Listings}
+
+Writing snippet of code within the \LaTeX\ files.
+
+\vspace{5mm}
+\begin{lstlisting}[language=Java, caption={Inline code}]
+package com.sandy ;
+
+import com.sandy.sample.* ;
+
+public class Test {
+    public static void main( String[] args ) {
+        System.out.println( "Hello World!" ) ;
+    }
+}
+\end{lstlisting}
+
+Importing code from an external source file.
+
+% Include code from a file with filename indicated
+\vspace{5mm}
+\lstinputlisting[language=Python, caption={External code}]
+    {./inc/res/code/test_code.py}
+
+Or we can quote a range of line numbers from the file.
+
+% Include only specific lines from a file
+\vspace{5mm}
+\lstinputlisting[language=Python, firstline=5, lastline=7, 
+                 caption={Snippet}]
+    {./inc/res/code/test_code.py}
+\vspace{5mm}

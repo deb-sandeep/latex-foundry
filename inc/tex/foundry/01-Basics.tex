@@ -1,0 +1,106 @@
+\newpage
+% ======================================================================
+\section{Basics}
+
+% ----------------------------------------------------------------------
+\subsection{Paragraphs and newlines}
+
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede.\par
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede.
+\par
+\setlength{\parindent=0pt} %No paragraph indent
+This is a single line followed by a new line \\
+This is a single line
+
+% ----------------------------------------------------------------------
+\subsection{Bold, Italics, Emphasize, Underline text}
+
+This is a \textbf{bold} word. \\
+This is an \textit{italicized} word. \\
+This is an \emph{emphasized} word. \\
+This is an \underline{underlined} word.
+
+% ----------------------------------------------------------------------
+\subsection{Unordered and ordered lists}
+
+Ordered lists exist within an \verb|enumerate| environment:
+\begin{enumerate}
+  \item List entries start with the \verb|\item| command.
+  \item Individual entries are indicated with bullet.
+\end{enumerate}
+\par
+
+Unordered lists exist within a \verb|itemize| environment:
+\begin{itemize}
+  \item List entries start with the \verb|\item| command.
+  \item Individual entries are indicated with bullet.
+\end{itemize}
+
+Description lists exist within a \verb|description| environment:
+\begin{description}
+    \item[Verb] Definition of a verb.
+    \item[Indicators] Definition of an indicator.
+\end{description}
+
+% ----------------------------------------------------------------------
+\subsection{Text with color}
+\label{sec:textcolor}
+
+A word can be \textcolor{red}{coloured} to any desired value.\\
+A word can have a \colorbox{yellow}{colored background}.
+\par
+{\color{blue}
+This is a paragraph of text written in blue color. Lorem ipsum dolor 
+sit amet, consectetuer adipiscing elit. Lorem ipsum dolor sit amet, 
+consectetuer adipiscing elit. 
+}
+\par
+The color is reset to normal text color.
+
+% ----------------------------------------------------------------------
+\subsection{Footnote}
+
+LaTeX, software used for typesetting \footnote{Typesetting is the way 
+that text is composed using individual types — the symbols, letters and
+glyphs in digital systems.} technical documents.
+\par
+LaTeX is a free software \footnote{the programs and other operating 
+information used by a computer.} package created in 1985 by the American computer 
+scientist Leslie Lamport as an addition to the TeX typesetting system. 
+LaTeX was created to make it easier to produce general-purpose books and 
+articles within TeX. Because LaTeX is an extension to the TeX typesetting 
+system, it has TeX’s ability to typeset technical documents that contain 
+complex mathematical equations.
+
+% ----------------------------------------------------------------------
+\subsection{Margin notes}
+
+The Big Bang event is a physical theory that describes how the universe 
+expanded from an initial state of high density and temperature. It was 
+first proposed in 1927 by Roman Catholic priest and physicist Georges Lemaître. 
+Various \marginpar{Cosmology is a phenomenal thing!} cosmological models of the Big Bang 
+explain the evolution of the observable universe from the earliest known 
+periods through its subsequent large-scale form. These models offer a 
+comprehensive explanation for a broad range of observed phenomena, including 
+the abundance of light elements, the cosmic microwave background (CMB) 
+radiation, and large-scale structure. 
+
+\par
+
+The overall uniformity of the Universe, known as the flatness problem, is 
+explained through cosmic inflation: a sudden and very rapid expansion of space 
+during the earliest moments. However, physics currently lacks a widely accepted 
+theory of quantum gravity that can successfully model the earliest conditions 
+of the Big Bang.
+
+% ----------------------------------------------------------------------
+\subsection{Cross referencing and hyperlinks}
+
+Section-\ref{sec:textcolor} demonstrates font and text color.
+\par
+Figure-\ref{fig:graph} is that of a mesh graph.
+\par
+For further references see \href{http://www.wikipedia.com}{Wikipedia} 
+or go to the next url: \url{http://www.google.com}.
+\par
+\hyperlink{word:w1}{This} is a link to a word within a paragraph of text in the document.

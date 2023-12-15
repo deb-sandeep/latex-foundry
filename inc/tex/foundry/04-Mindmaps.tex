@@ -1,0 +1,29 @@
+\newpage
+% ======================================================================
+\section{Mindmaps}
+
+\begin{tikzpicture}[mindmap, grow cyclic, 
+                    every node/.style=concept, 
+                    concept color=orange!40, 
+	                level 1/.append style={level distance=5cm,sibling angle=90},
+	                level 2/.append style={level distance=3cm,sibling angle=45},]
+
+\node{\LaTeX\ Cheatsheet}
+child[concept color=green!20] { node {Basics}
+	child { node {Paragraphs and newlines}}
+	child { node {Text formatting}}
+	child { node {Lists}}
+	child { node {Colored text}}
+	child { node {Footnote}}
+	child { node {Margin notes}}
+	child { node {Cross referencing}}
+}
+child[concept color=red!10] { node {Images}
+	child { node {Alignment}}
+}
+child[concept color=cyan!40] { node {Mindmaps}
+}
+child[concept color=yellow!40] { node {Tables}
+};
+
+\end{tikzpicture}

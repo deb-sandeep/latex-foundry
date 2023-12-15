@@ -1,0 +1,163 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{docmute}
+\usepackage{import}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{url}
+\usepackage{blindtext}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{pgffor}
+\usepackage[skip=10pt, indent=50pt]{parskip}
+\usepackage[]{setspace}
+\usepackage[margin=25mm, headheight=15pt]{geometry}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{wrapfig}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{lastpage}
+\usepackage{tikz}
+\usetikzlibrary{mindmap}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{algorithm2e}
+\usepackage{pgf-umlsd}
+
+\usepgflibrary{arrows} % for pgf-umlsd
+
+% Load document configuration from inc/config.tex if the config file exists
+\IfFileExists{ ./config.tex }%
+   {\input{ ./config.tex }}{}%
+
+% ------------- Document wide settings ------------------------------------
+
+% Apply a . after section and sub-section numbering.
+\titlelabel{\thetitle.\quad}
+
+% Set the graphics path for \includegraphics on this page.
+\graphicspath{ {./inc/res/img/}{./inc/res/img/foundry/} }
+
+% Set title of ToC
+\renewcommand{\contentsname}{\hfill\bfseries\Large Table of contents\hfill}   
+
+% Set one-half spacing as default. This is from setspace package
+\onehalfspacing
+
+% Configure list item separation. {enumitem} package
+\setlist{itemsep=2pt, parsep=2pt}
+
+% Define custom left, right and center paragraph table columns
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% Separation between footnotes
+\setlength{\footnotesep}{0.5cm}
+
+% Right margin width and separation
+\ifdefined\usemargin
+    \setlength{\textwidth}{430pt}
+    \setlength{\marginparwidth}{65pt}
+    \setlength{\marginparsep}{10pt}
+
+    \let\oldmarginpar\marginpar
+    \renewcommand{\marginpar}[1]{\oldmarginpar{\small \textcolor{red}{\textit{#1}}}}
+\fi
+
+% Make the page number at the bottom of the page x of y
+\fancyhf{}
+\fancyfoot[R]{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+
+% Customize the way hyperlinks show up in the document.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle=\dochdr,
+    pdfpagemode=FullScreen,
+}
+
+% Source code listing settings. Depends upon color and xcolor 
+% https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+% Color definitions for source code listings
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codemauve}{rgb}{0.58,0,0.82}
+
+% Formatting (line breaks, spacing, etc...) for code
+\lstset{ 
+  backgroundcolor=\color{gray!5},     % choose the background color;
+  basicstyle=\footnotesize,          % the size of the fonts that are used for the code
+  breakatwhitespace=false,           % sets if automatic breaks only happen at whitespace
+  breaklines=true,                   % sets automatic line breaking
+  captionpos=b,                      % sets the caption-position to bottom
+  commentstyle=\color{codegreen},    % comment style
+  deletekeywords={...},              % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  extendedchars=true,                % lets you use non-ASCII 8-bit encoded characters; no UTF-8
+  frame=leftline,	                     % adds a frame around the code
+  keepspaces=true,                   % keeps spaces in text, useful for keeping indentation of code
+  keywordstyle=\color{blue},         % keyword style
+  otherkeywords={*,...},             % if you want to add more keywords to the set
+  numbers=left,                      % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                     % how far the line-numbers are from the code
+  numberstyle=\tiny\color{codegray}, % the style that is used for the line-numbers
+  rulecolor=\color{gray},           % if not set, the frame-color may be changed on line-breaks
+  showspaces=false,                  % show spaces everywhere adding particular underscores;
+  showstringspaces=false,            % underline spaces within strings only
+  showtabs=false,                    % show tabs within strings adding particular underscores
+  stepnumber=2,                      % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{codemauve},     % string literal style
+  tabsize=2	                         % sets default tabsize to 2 spaces
+  %title=\lstname                    % show the filename of files included with \lstinputlisting; 
+}
+
+% Global settings for algorithms
+\DontPrintSemicolon                  % Don't print semicolons at the end of lines
+
+% ------------------- Load new commands ----------------------------------
+% Load the image new commands (limg, rimg, img) 
+\subimport{inc/tex/util/newcmd}{img}
+
+% ------------------------------------------------------------------------
+
+\begin{document}
+
+% Set the header only if the documenthdr property has been set in the config
+\ifdefined\dochdr
+    \pagestyle{fancy}
+    \fancyhead[RL]{}
+    \fancyhead[C]{\dochdr}
+\fi
+
+% Import the cover page
+\subimport{inc/tex/foundry}{00-cover-page}
+
+% Table of contents
+\ifdefined\doctoc
+    \tableofcontents
+    \clearpage
+\fi
+
+% List of figures
+\ifdefined\doclof
+    \listoffigures
+    \clearpage
+\fi
+
+
+\subimport{inc/tex/foundry}{01-Basics}
+\subimport{inc/tex/foundry}{02-Images}
+\subimport{inc/tex/foundry}{03-Tables}
+\subimport{inc/tex/foundry}{04-Mindmaps}
+\subimport{inc/tex/foundry}{05-Listings}
+\subimport{inc/tex/foundry}{06-Algorithms}
+\subimport{inc/tex/foundry}{07-SequenceDia}
+
+\end{document}

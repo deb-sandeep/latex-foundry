@@ -1,6 +1,6 @@
 # LaTeX foundry
 
-This is a foundry project to hold my latex document boiler-plates, custom new commands and standardized snippets of frequently used code.
+This is a foundry project to hold my latex document boiler-plates, custom new commands and standardized snippets of frequently used code. This boiler-plate uses a multi-file structure.
 
 Feel free to use these examples any way you like. The content here is under The Unlicense so you are free to use it just about any way you like. For details, see the file LICENSE or [The Unlicense website](https://unlicense.org/).
 
@@ -61,6 +61,10 @@ vim.cmd [[
 
 Clone the github repo.
 
-> git clone https://github.com/deb-sandeep/latex-foundry
+> git clone --depth=1 --branch=master https://github.com/deb-sandeep/latex-foundry ; rm -rf ./latex-foundry/.git
+
+This will create the above mentioned folder and remove it as a git linked folder. At this point, you can either treat main.tex as your main document file and hack away or create a new one.
+
+Remember that the `main.tex.latexmain` empty file identifies the main tex file for vimtex. If you are changing the name of your main tex file, rename this file to `<new main>.tex.latexmain`.
 
 
